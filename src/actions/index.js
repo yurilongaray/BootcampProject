@@ -2,14 +2,12 @@
 //Ao ser disparada, ela comunicará ao Reducer que o type é CLICK_UPDATE_VALUE,
 //além do valor newValue: value que deverá ser atualizado na Store.
 import axios from 'axios';
-import { FETCH_EVENT } from './actionTypes';
+
 const API_KEY = '571a1c1346134346874501032633063';
 const ROOT_URL = `https://api.meetup.com/find/groups?photo-host=public`;
 
-export const clickButton = value => ({
-	type: 'FETCH_EVENT',
-	newValue: value
-});
+//Deve estar na actionTypes porém...
+export const FETCH_CITY = 'FETCH_CITY';
 
 //Actions devem retornar um type
 export function fetchEvent(city) {
@@ -18,7 +16,7 @@ export function fetchEvent(city) {
 
     console.log('Request', request);
     return {
-        type: FETCH_EVENT,
+        type: FETCH_CITY,
         payload: request //Retornando a promisse no payload, utilizar nas requisicoes ajax
     };
 }
