@@ -3,8 +3,8 @@
 //além do valor newValue: value que deverá ser atualizado na Store.
 import axios from 'axios';
 import { FETCH_EVENT } from './actionTypes';
-//const API_KEY = '571a1c1346134346874501032633063';
-const ROOT_URL = `https://api.meetup.com/find/groups?`;
+const API_KEY = '571a1c1346134346874501032633063';
+const ROOT_URL = `https://api.meetup.com/find/groups?photo-host=public`;
 
 export const clickButton = value => ({
 	type: 'FETCH_EVENT',
@@ -13,8 +13,7 @@ export const clickButton = value => ({
 
 //Actions devem retornar um type
 export function fetchEvent(city) {
-    //const url = `${ROOT_URL}&q=${city},us`; //País = us
-	const url = `${ROOT_URL}photo-host=public&location=${city}&page=20&country=Brasill&sig_id=234585495&sig=493c8d69a05905aa9e53d67ad3fe0f1a4f2da40e`;
+	const url = `${ROOT_URL}&location=${city}&page=20&country=Brasill&key=${API_KEY}`;
 	const request = axios.get(url);
 
     console.log('Request', request);
