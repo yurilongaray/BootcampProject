@@ -1,25 +1,25 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchWeather} from '../actions/index';
+import {fetchEvent} from '../actions/index';
 
 class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { term: "" }
+		this.state = { term: "Curitiba" }
 
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
 	onInputChange(event) { //Toda classe DOM necessita do parâmetro event
-        console.log(event.target.value);
+        //console.log(event.target.value);
         this.setState({ term: event.target.value });
     }
 
     onFormSubmit(event) {
         event.preventDefault(); //Faz com que o browser não submita o form
-        //IMPORTANTE: this.props.fetchWeather(this.state.term); //Chamando a ActionCreator e passando o term para cidade
+        this.props.fetchEvent(this.state.term); //Chamando a ActionCreator e passando o term para cidade
         this.setState({ term: '' }); //Quando finalizar, retornar termo vazio
 
     }
@@ -43,15 +43,13 @@ class SearchBar extends Component {
         );
     }
 }
-export default SearchBar;
 
-/* IMPORTANTE
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ fetchWeather }, dispatch);
+    return bindActionCreators({ fetchEvent }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar);
-*/
+
 /*
 Importante:
 Se existir um callback (onChange), que faz referência a uma função (onInputChange)

@@ -14,6 +14,7 @@ export function fetchEvent(city) {
 	const url = `${ROOT_URL}&location=${city}&page=20&country=Brasill&key=${API_KEY}`;
 	const request = axios.get(url);
 
+	console.log(url)
     console.log('Request', request);
     return {
         type: FETCH_CITY,
