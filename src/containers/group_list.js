@@ -38,8 +38,8 @@ class GroupList extends Component {
     }
 }
 
-function mapStateToProps({meetupEvent}) { //{weather} é a mesma coisa que state.weather
-    return { meetupEvent }; //{weather} === {weather: weather};
-}
+const mapStateToProps = store => ({
+	cityData: store.cityState
+});
 
 export default connect(mapStateToProps)(GroupList);

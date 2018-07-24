@@ -1,11 +1,10 @@
 Projeto Final Bootcamp
 
 //URL
-https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasill&key=571a1c1346134346874501032633063
-
+https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasill&key=3e36485f165d535444a2a78173f1c6c
 
 Links de ref:
-API Key = 571a1c1346134346874501032633063
+API Key = 3e36485f165d535444a2a78173f1c6c
 https://medium.com/mackmobile/criando-um-web-service-restful-usando-node-js-7c00d8f16a4a
 
 https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
