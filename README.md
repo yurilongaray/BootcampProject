@@ -17,3 +17,5 @@ https://www.meetup.com/pt-BR/meetup_api/docs/find/groups/?uri=%2Fmeetup_api%2Fdo
 https://www.meetup.com/meetup_api/auth/#keys
 
 https://secure.meetup.com/pt-BR/meetup_api/key/
+
+https://github.com/bootcamp-joinville/meetup-api-proxy

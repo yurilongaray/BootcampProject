@@ -3,16 +3,17 @@
 //além do valor newValue: value que deverá ser atualizado na Store.
 import axios from 'axios';
 
-const API_KEY = '571a1c1346134346874501032633063';
-const ROOT_URL = `https://api.meetup.com/find/groups?photo-host=public`;
+const API_KEY = '3e36485f165d535444a2a78173f1c6c';
 
 //Deve estar na actionTypes porém...
 export const FETCH_CITY = 'FETCH_CITY';
 
 //Actions devem retornar um type
 export function fetchEvent(city) {
-	const url = `${ROOT_URL}&location=${city}&page=20&country=Brasill&key=${API_KEY}`;
-	const request = axios.get(url);
+	const url = `http://localhost:5000/groups?photo-host=public&location=${city}&page=20&country=Brasill&&key=${API_KEY}`;
+    const request = axios.get(url, {
+        crossdomain: true
+    });
 
 	console.log(url)
     console.log('Request', request);

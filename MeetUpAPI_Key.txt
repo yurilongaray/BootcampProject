@@ -1,3 +1,3 @@
-API Key = 571a1c1346134346874501032633063
+API Key = 5dflmlqkhb8g7rjhdjrdu57d5g
 
-https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasill&key=571a1c1346134346874501032633063
+https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasill&key=5dflmlqkhb8g7rjhdjrdu57d5g&m81o5slqutkqk7cnhrhc1550pr
