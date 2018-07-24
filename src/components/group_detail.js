@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class EventDetail extends Component {
+class GroupDetail extends Component {
 	constructor(props) {
 		super(props);
 
@@ -25,4 +25,4 @@ class EventDetail extends Component {
 	</div>
 	*/
 }
-export default EventDetail;
+export default GroupDetail;

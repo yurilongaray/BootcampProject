@@ -4,19 +4,20 @@
 import axios from 'axios';
 
 const API_KEY = '3e36485f165d535444a2a78173f1c6c';
+const ROOT_URL = 'http://localhost:5000/';
 
 //Deve estar na actionTypes porém...
 export const FETCH_CITY = 'FETCH_CITY';
 
 //Actions devem retornar um type
 export function fetchEvent(city) {
-	const url = `http://localhost:5000/groups?photo-host=public&location=${city}&page=20&country=Brasill&&key=${API_KEY}`;
+	const url = `${ROOT_URL}groups?photo-host=public&location=${city}&page=20&country=Brasill&&key=${API_KEY}`;
     const request = axios.get(url, {
         crossdomain: true
     });
 
-	console.log(url)
-    console.log('Request', request);
+	//console.log(url)
+    //console.log('Request: ', request);
     return {
         type: FETCH_CITY,
         payload: request //Retornando a promisse no payload, utilizar nas requisicoes ajax
