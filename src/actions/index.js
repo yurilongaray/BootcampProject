@@ -11,13 +11,17 @@ export const FETCH_CITY = 'FETCH_CITY';
 
 //Actions devem retornar um type
 export function fetchEvent(city) {
-	const url = `${ROOT_URL}?photo-host=public&location=${city}&page=20&country=Brasil&key=${API_KEY}`;
-    const request = axios.get(url);
+    return dispatch => {
+        //const url = `${ROOT_URL}?photo-host=public&location=${city}&page=20&country=Brasil&key=${API_KEY}`;
+        //const request = axios.get(url);
 
-	console.log('URL:', url);
-	console.log('Request:', request);
-    return {
-        type: FETCH_CITY,
-        payload: request //Retornando a promisse no payload, utilizar nas requisicoes ajax
-    };
+        const url = `${ROOT_URL}?photo-host=public&location=${city}&page=20&country=Brasil&key=${API_KEY}`;
+        return axios.get(url)
+        .then(response => dispatch({ 
+            type: FETCH_CITY,
+            payload: response.data
+        }));
+    }
 }
+
+
