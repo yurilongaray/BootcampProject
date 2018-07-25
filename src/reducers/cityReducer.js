@@ -1,9 +1,11 @@
 import { FETCH_CITY } from '../actions/index';
 
-export default function(state = [], action) { //state é o array de cidades
-    switch(action.type) {
+export default function(state = [], action) { //state possui o array de cidades
+
+	switch(action.type) {
+
         case FETCH_CITY:
-		console.log('teste:', action.payload)
+		console.log('Teste:', action.payload);
         return {
             ...state,
             cityState: action.payload

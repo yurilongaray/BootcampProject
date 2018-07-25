@@ -6,40 +6,52 @@ class GroupList extends Component {
 	constructor(props) {
 		super(props);
 
+		this.state = { term: "" }
+
+		this.renderMeetup = this.renderMeetup.bind(this);
+		this.handleClick = this.handleClick.bind(this)
+	}
+
+	handleClick(name) {
+		alert('CLICOU EM ' + name)
 	}
 
     //Função para tratar cada meetup
-    renderMeetups(cityData) {
-		//console.log(cityData)
-		const meetupCity = cityData.list.map(meetupEvent => meetupEvent.city);
-		const meetupId  = cityData.list.map(meetupEvent => meetupEvent.id);
-		const meetupName  = cityData.list.map(meetupEvent => meetupEvent.name);
-		const meetupMembers  = cityData.list.map(meetupEvent => meetupEvent.members);
-
+    renderMeetup(meetup) {
         return (
-            <div key={meetupId}>
+			<div onClick={ () => this.handleClick(meetup.name) } key={meetup.id}>{meetup.city}, {meetup.id}{meetup.name}</div>
+            /*<div key={meetupId}>
+
 				<GroupDetail
 					meetupId={meetupId}
 					meetupName={meetupName}
 					meetupMembers={meetupMembers}
 					meetupCity = {meetupCity}
 				/>
-            </div>
-        );
+
+			</div>
+			*/
+		);
     }
 
     render() {
 		console.log('Props received: ', this.props)
-		//{this.props.meetupEvent.map(this.renderMeetups)}
+		//let teste = this.props.cityData.cityState;
         return (
 			<div className="row">
+				{ this.props.cityState.map(this.renderMeetup) }
 			</div>
         );
     }
 }
 
+GroupList.defaultProps = {
+	cityState: []
+}
+
+//Passando o state cityState presente na store
 const mapStateToProps = store => ({
-	cityData: store.cityState
+	cityState: store.cityState.cityState
 });
 
 export default connect(mapStateToProps)(GroupList);

@@ -18,7 +18,7 @@ class SearchBar extends Component {
     }
 
     onFormSubmit(event) {
-        event.preventDefault(); //Faz com que o browser não submita o form
+        event.preventDefault(); //Retira o submit do form
         this.props.fetchEvent(this.state.term); //Chamando a ActionCreator e passando o term para cidade
         this.setState({ term: '' }); //Quando finalizar, retornar termo vazio
 
