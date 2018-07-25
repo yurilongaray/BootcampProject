@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import GroupDetailModal from '../components/group_detail';
 
 class GroupList extends Component {
 	constructor(props) {
@@ -19,6 +20,16 @@ class GroupList extends Component {
 		console.log(this.state);
 	}
 
+	showModal = () => {
+		console.log('open', this.state)
+		this.setState({ show: true })
+	}
+
+	hideModal = () => {
+		console.log('close', this.state)
+		this.setState( { show: false })
+	}
+
     //Função para tratar cada meetup
     renderMeetup(meetup) {
         return (
@@ -35,9 +46,12 @@ class GroupList extends Component {
 					}
 				</div>
 				<div className='row'>
-					<button type='button' onClick={this.handleClick} className='btn btn-light'>Detalhes</button>
+					<button type='button' onClick={this.showModal} className='btn btn-light'>Detalhes</button>
 					<a href={meetup.link}><button type='button' className='btn btn-info'>Inscrição</button></a>
 				</div>
+				<GroupDetailModal show={this.state.show} handleClose={this.hideModal}>
+					<p>teste</p>
+				</GroupDetailModal>
 			</div>
 		);
     }
