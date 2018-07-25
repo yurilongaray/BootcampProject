@@ -6,6 +6,7 @@ class GroupList extends Component {
 		super(props);
 
 		this.state = {
+			term: '',
 			show: false
 		}
 
@@ -21,30 +22,30 @@ class GroupList extends Component {
     //Função para tratar cada meetup
     renderMeetup(meetup) {
         return (
-			<div className="col-md-6 meetup-box" key={meetup.id}>
+			<div className='col-md-6 meetup-box' key={meetup.id}>
 
-				<div className="row">
+				<div className='row'>
 					<h4>{meetup.name}</h4>
 				</div>
-				<div className="row">
+				<div className='row'>
 					{ //Verifica se existe foto nos eventos.
 						meetup.key_photo && meetup.key_photo.photo_link
-							? <img className="img-responsive img-thumbnail" src={ meetup.key_photo.photo_link } alt="Meetup Groups's" />
-							: <img className="img-responsive img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="Empty"/>
+							? <img className='img-responsive img-thumbnail' src={ meetup.key_photo.photo_link } alt='Meetup Group' />
+							: <img className='img-responsive img-thumbnail' src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='Empty'/>
 					}
 				</div>
-				<div className="row">
-					<button type="button" onClick={this.handleClick} className="btn btn-light">Detalhes</button>
-					<a href={meetup.link}><button type="button" className="btn btn-info">Inscrição</button></a>
+				<div className='row'>
+					<button type='button' onClick={this.handleClick} className='btn btn-light'>Detalhes</button>
+					<a href={meetup.link}><button type='button' className='btn btn-info'>Inscrição</button></a>
 				</div>
 			</div>
 		);
     }
 
     render() {
-		//console.log('Props received: ', this.props)
+		console.log('Props received: ', this.props)
 		return (
-			<div className="row">
+			<div className='row'>
 				{ this.props.cityState.map(this.renderMeetup) }
 			</div>
         );

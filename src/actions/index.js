@@ -13,7 +13,7 @@ export const FETCH_CITY = 'FETCH_CITY';
 export function fetchEvent(city) {
     return dispatch => {
 
-        const url = `${ROOT_URL}?photo-host=public&location=${city}&page=20&country=Brasil&key=${API_KEY}`;
+        const url = `${ROOT_URL}?photo-host=public&location=${city}&page=10&country=Brasil&key=${API_KEY}`;
         return axios.get(url)
         .then(response => dispatch({
             type: FETCH_CITY,
