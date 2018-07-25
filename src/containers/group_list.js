@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import GroupDetail from '../components/group_detail';
 
 class GroupList extends Component {
 	constructor(props) {
@@ -9,7 +8,7 @@ class GroupList extends Component {
 		this.state = { term: "" }
 
 		this.renderMeetup = this.renderMeetup.bind(this);
-		this.handleClick = this.handleClick.bind(this)
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleClick(name) {
@@ -19,8 +18,24 @@ class GroupList extends Component {
     //Função para tratar cada meetup
     renderMeetup(meetup) {
         return (
-			<div onClick={ () => this.handleClick(meetup.name) } key={meetup.id}>{meetup.city}, {meetup.id}{meetup.name}</div>
-            /*<div key={meetupId}>
+			<div className="col-md-6 meetup-box" key={meetup.id}>
+
+				<div className="row">
+					<h4>{meetup.name}</h4>
+				</div>
+				<div className="row">
+					{ //Verifica se existe foto nos eventos.
+						meetup.key_photo && meetup.key_photo.photo_link
+							? <img className="img-responsive img-thumbnail" src={ meetup.key_photo.photo_link } />
+							: <img className="img-responsive img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" />
+					}
+				</div>
+				<div className="row">
+					<a href={meetup.link}><button type="button" className="btn btn-light">Detalhes</button></a>
+					<a href=""><button type="button" className="btn btn-info">Inscrição</button></a>
+				</div>
+			</div>
+			/*<div key={meetupId}>
 
 				<GroupDetail
 					meetupId={meetupId}
