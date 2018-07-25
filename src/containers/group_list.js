@@ -5,14 +5,17 @@ class GroupList extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { term: "" }
+		this.state = {
+			show: false
+		}
 
 		this.renderMeetup = this.renderMeetup.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleClick(name) {
-		alert('CLICOU EM ' + name)
+
+		console.log(this.state);
 	}
 
     //Função para tratar cada meetup
@@ -26,33 +29,21 @@ class GroupList extends Component {
 				<div className="row">
 					{ //Verifica se existe foto nos eventos.
 						meetup.key_photo && meetup.key_photo.photo_link
-							? <img className="img-responsive img-thumbnail" src={ meetup.key_photo.photo_link } />
-							: <img className="img-responsive img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" />
+							? <img className="img-responsive img-thumbnail" src={ meetup.key_photo.photo_link } alt="Meetup Groups's" />
+							: <img className="img-responsive img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="Empty"/>
 					}
 				</div>
 				<div className="row">
-					<a href={meetup.link}><button type="button" className="btn btn-light">Detalhes</button></a>
-					<a href=""><button type="button" className="btn btn-info">Inscrição</button></a>
+					<button type="button" onClick={this.handleClick} className="btn btn-light">Detalhes</button>
+					<a href={meetup.link}><button type="button" className="btn btn-info">Inscrição</button></a>
 				</div>
 			</div>
-			/*<div key={meetupId}>
-
-				<GroupDetail
-					meetupId={meetupId}
-					meetupName={meetupName}
-					meetupMembers={meetupMembers}
-					meetupCity = {meetupCity}
-				/>
-
-			</div>
-			*/
 		);
     }
 
     render() {
-		console.log('Props received: ', this.props)
-		//let teste = this.props.cityData.cityState;
-        return (
+		//console.log('Props received: ', this.props)
+		return (
 			<div className="row">
 				{ this.props.cityState.map(this.renderMeetup) }
 			</div>

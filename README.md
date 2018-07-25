@@ -1,5 +1,8 @@
 Projeto Final Bootcamp
 
+//Modal component:
+https://alligator.io/react/modal-component/
+
 //URL
 https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasill&key=3e36485f165d535444a2a78173f1c6c
 
