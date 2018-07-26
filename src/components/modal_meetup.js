@@ -1,10 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-const GroupDetailModal = ({ handleClose, show, children }) => {
+const ModalMeetup = ({ handleClose, show, children }) => {
 	const showHideclass = show ? 'modal display-block' : 'modal display-none';
 
 	return (
-
 		<div className={showHideclass}>
 			<div className="modal-main modal-content">
 				<div className="modal-body">
@@ -14,8 +13,7 @@ const GroupDetailModal = ({ handleClose, show, children }) => {
 					<button className="btn btn-default" onClick={handleClose}>Close</button>
 				</div>
 			</div>
-		</div>		  
+		</div>
 	);
 };
-
-export default GroupDetailModal;
+export default ModalMeetup;

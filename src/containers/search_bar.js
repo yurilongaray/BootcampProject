@@ -12,10 +12,11 @@ class SearchBar extends Component {
 		this.onInputChange = this.onInputChange.bind(this);
 		this.onFormSubmit = this.onFormSubmit.bind(this);
 	}
+
 	onInputChange(event) { //Toda classe DOM necessita do parâmetro event
         //console.log(event.target.value);
         this.setState({ term: event.target.value });
-    }
+	}
 
     onFormSubmit(event) {
         event.preventDefault(); //Retira o submit do form
@@ -27,7 +28,7 @@ class SearchBar extends Component {
     render() {
         return(
             <form onSubmit={this.onFormSubmit} className='row form-search'>
-                <div className='search-bar input-group'> 
+                <div className='search-bar input-group'>
                     <input
                         placeholder='Search for an group'
                         className='form-control'
@@ -49,12 +50,4 @@ class SearchBar extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ fetchEvent }, dispatch);
 }
-
 export default connect(null, mapDispatchToProps)(SearchBar);
-
-/*
-Importante:
-Se existir um callback (onChange), que faz referência a uma função (onInputChange)
-essa função necessita ser bindada ( this.onInputChange = this.onInputChange.bind(this); )
-para então se utilizar a funcionalidade this
-*/

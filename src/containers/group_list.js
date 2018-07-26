@@ -8,80 +8,36 @@ class GroupList extends Component {
 
 		this.state = {
 			term: '',
-			show: false,
-			teste: 'ola'
 		}
-
-		this.renderMeetup = this.renderMeetup.bind(this);
-		this.handleClick = this.handleClick.bind(this);
 	}
-
-	handleClick(name) {
-
-		console.log(this.state);
-	}
-
-	showModal = () => {
-		console.log('open', this.state)
-		this.setState({ show: true })
-	}
-
-	hideModal = () => {
-		console.log('close', this.state)
-		this.setState( { show: false })
-	}
-
-    //Função para tratar cada meetup
-    renderMeetup(meetup) {
-        return (
-			<div className='col-md-6 meetup-box' key={meetup.id}>
-
-				<div className='row'>
-					<h4>{meetup.name}</h4>
-				</div>
-				<div className='row'>
-					{ //Verifica se existe foto nos eventos.
-						meetup.key_photo && meetup.key_photo.photo_link
-							? <img className='img-responsive img-thumbnail' src={ meetup.key_photo.photo_link } alt='Meetup Group' />
-							: <img className='img-responsive img-thumbnail' src='https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' alt='Empty'/>
-					}
-				</div>
-				<div className='row'>
-					<button type='button' onClick={this.showModal} className='btn btn-light'>Detalhes</button>
-					<a href={meetup.link}><button type='button' className='btn btn-info'>Inscrição</button></a>
-				</div>
-			</div>
-		);
-    }
 
     render() {
-		//console.log('Props received:{ this.props.cityState.map(this.renderMeetup) }  ', this.props)
 		return (
 			<div className='row'>
-				{ this.props.cityState.map( function(meetup) {
+				{
+					this.props.cityState.map( function(meetup) {
+						var img = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
 
-					var img = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+						if(meetup.key_photo && meetup.key_photo.photo_link) {
+							img = meetup.key_photo.photo_link;
+						}
 
-					if(meetup.key_photo && meetup.key_photo.photo_link) {
-						img = meetup.key_photo.photo_link;
-					}
-
-					return(
-						<GroupItem
-							key={meetup.id}
-							name={meetup.name}
-							image={img}
-							link={meetup.link}
-						/>
-					)})
-
+						return(
+							<GroupItem
+								key={meetup.id}
+								name={meetup.name}
+								image={img}
+								link={meetup.link}
+							/>
+						)
+					})
 				}
-
 			</div>
         );
     }
 }
 
+//Iniciando a props com []
 GroupList.defaultProps = {
 	cityState: []
 }
@@ -90,5 +46,4 @@ GroupList.defaultProps = {
 const mapStateToProps = store => ({
 	cityState: store.cityState.cityState
 });
-
 export default connect(mapStateToProps)(GroupList);
