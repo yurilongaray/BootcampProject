@@ -49,8 +49,16 @@ class GroupList extends Component {
 					<button type='button' onClick={this.showModal} className='btn btn-light'>Detalhes</button>
 					<a href={meetup.link}><button type='button' className='btn btn-info'>Inscrição</button></a>
 				</div>
+
 				<GroupDetailModal show={this.state.show} handleClose={this.hideModal}>
-					<p>teste</p>
+					<h2>{ meetup.name }</h2>
+					<ul className='list-group'>
+						<li className='list-group-item'></li>
+						<li className='list-group-item'></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
 				</GroupDetailModal>
 			</div>
 		);
