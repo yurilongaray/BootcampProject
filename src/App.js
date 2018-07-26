@@ -3,8 +3,6 @@ import './App.css';
 import SearchBar from './containers/search_bar';
 import GroupList from './containers/group_list';
 
-//https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
-
 export default class App extends Component {
 
 	render() {

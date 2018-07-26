@@ -7,30 +7,36 @@ class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { term: 'Curitiba' }
+		this.state = {
+			term: ''
+		}
 
-		this.onInputChange = this.onInputChange.bind(this);
-		this.onFormSubmit = this.onFormSubmit.bind(this);
+		this.onInputChange 	= this.onInputChange.bind(this);
+		this.onFormSubmit 	= this.onFormSubmit.bind(this);
 	}
 
-	onInputChange(event) { //Toda classe DOM necessita do parâmetro event
-        //console.log(event.target.value);
-        this.setState({ term: event.target.value });
+	onInputChange(event) {
+        this.setState({
+			term: event.target.value
+		});
 	}
 
     onFormSubmit(event) {
-        event.preventDefault(); //Retira o submit do form
-        this.props.fetchEvent(this.state.term); //Chamando a ActionCreator e passando o term para cidade
-        this.setState({ term: '' }); //Quando finalizar, retornar termo vazio
-
-    }
+		//Retira o submit do form
+        event.preventDefault();
+		this.props.fetchEvent(this.state.term);
+		//Quando finalizar, retornar termo vazio
+        this.setState({
+			term: ''
+		});
+	}
 
     render() {
         return(
             <form onSubmit={this.onFormSubmit} className='row form-search'>
                 <div className='search-bar input-group'>
                     <input
-                        placeholder='Search for an group'
+                        placeholder='Search for a city'
                         className='form-control'
                         value={this.state.term}
                         onChange={this.onInputChange}

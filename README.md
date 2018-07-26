@@ -1,14 +1,17 @@
 Projeto Final Bootcamp
 
-//Modal component:
-https://alligator.io/react/modal-component/
+//API KEY
+3e36485f165d535444a2a78173f1c6c
 
-//URL
+//API URL
 https://api.meetup.com/find/groups?photo-host=public&location=Curitiba&page=20&country=Brasil&key=3e36485f165d535444a2a78173f1c6c
 
 Links de ref:
-API Key = 3e36485f165d535444a2a78173f1c6c
 https://medium.com/mackmobile/criando-um-web-service-restful-usando-node-js-7c00d8f16a4a
+
+https://alligator.io/react/modal-component/
+
+http://makitweb.com/convert-unix-timestamp-to-date-time-with-javascript/
 
 https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
 
