@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import GroupDetailModal from '../components/group_detail';
+import GroupItem from '../components/group_item';
 
 class GroupList extends Component {
 	constructor(props) {
@@ -8,7 +8,8 @@ class GroupList extends Component {
 
 		this.state = {
 			term: '',
-			show: false
+			show: false,
+			teste: 'ola'
 		}
 
 		this.renderMeetup = this.renderMeetup.bind(this);
@@ -49,26 +50,33 @@ class GroupList extends Component {
 					<button type='button' onClick={this.showModal} className='btn btn-light'>Detalhes</button>
 					<a href={meetup.link}><button type='button' className='btn btn-info'>Inscrição</button></a>
 				</div>
-
-				<GroupDetailModal show={this.state.show} handleClose={this.hideModal}>
-					<h2>{ meetup.name }</h2>
-					<ul className='list-group'>
-						<li className='list-group-item'></li>
-						<li className='list-group-item'></li>
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
-				</GroupDetailModal>
 			</div>
 		);
     }
 
     render() {
-		console.log('Props received: ', this.props)
+		//console.log('Props received:{ this.props.cityState.map(this.renderMeetup) }  ', this.props)
 		return (
 			<div className='row'>
-				{ this.props.cityState.map(this.renderMeetup) }
+				{ this.props.cityState.map( function(meetup) {
+
+					var img = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+
+					if(meetup.key_photo && meetup.key_photo.photo_link) {
+						img = meetup.key_photo.photo_link;
+					}
+
+					return(
+						<GroupItem
+							key={meetup.id}
+							name={meetup.name}
+							image={img}
+							link={meetup.link}
+						/>
+					)})
+
+				}
+
 			</div>
         );
     }
